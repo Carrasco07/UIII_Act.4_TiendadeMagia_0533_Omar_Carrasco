@@ -1,7 +1,11 @@
 # UIII_Act.4_TiendadeMagia_0533_Omar_Carrasco
 
-<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/48db7b66-250b-4eba-98e5-bfe2b9a259dd" />
+<img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/1c1486ec-43aa-4a32-8f10-3deb0337a60a" />
 
-<img width="1918" height="971" alt="image" src="https://github.com/user-attachments/assets/93dee04b-2f1b-4b12-a57e-41c5e1769184" />
+<img width="1920" height="994" alt="image" src="https://github.com/user-attachments/assets/2f3eff73-1f6f-4c0b-91b8-0640becc77e0" />
 
-<img width="1918" height="971" alt="image" src="https://github.com/user-attachments/assets/2bf249d9-6da7-4ff5-a10c-d4106d432c22" />
+<img width="1920" height="999" alt="image" src="https://github.com/user-attachments/assets/640aa14e-a376-44ca-9c8e-5ec0d714b480" />
+
+<img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/9046d204-4bae-4af8-a0b4-6433b41c8362" />
+
+<img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/645eff16-1eb4-4402-9363-126c9a22162f" />
