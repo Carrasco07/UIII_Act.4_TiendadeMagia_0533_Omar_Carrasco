@@ -1,0 +1,63 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-lg fixed-top">
+    <div class="container-fluid">
+        
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'inicio_TiendadeMagia' %}">
+    <i class="fas fa-cauldron fa-2x me-2 text-white" style="width: 40px; height: 40px; text-align: center; border: 2px solid white; border-radius: 50%;"></i> 
+    <span class="fw-bold">Tienda de Magia</span>
+</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'inicio_TiendadeMagia' %}">
+                        <i class="fas fa-home me-1"></i> Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-magic me-1"></i> Producto
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark shadow border-0" aria-labelledby="productosDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_producto' %}">Ver Productos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item disabled" href="#">Actualizar/Borrar (Desde Ver)</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="ordenesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-scroll me-1"></i> Órdenes de Venta
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark shadow border-0" aria-labelledby="ordenesDropdown">
+        
+        <li><a class="dropdown-item" href="{% url 'agregar_orden' %}">Agregar Orden</a></li>
+        <li><a class="dropdown-item" href="{% url 'ver_ordenes' %}">Ver Órdenes</a></li>
+        
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item disabled" href="#">Actualizar/Borrar (Desde Ver)</a></li>
+        
+    </ul>
+</li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="detallesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-clipboard-list me-1"></i> Detalles de Orden
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark shadow border-0" aria-labelledby="detallesDropdown">
+                        <li><a class="dropdown-item disabled" href="#">Agregar Detalle de Orden</a></li>
+                        <li><a class="dropdown-item disabled" href="#">Ver Detalles de Orden</a></li>
+                        <li><a class="dropdown-item disabled" href="#">Actualizar Detalle de Orden</a></li>
+                        <li><a class="dropdown-item disabled" href="#">Borrar Detalle de Orden</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

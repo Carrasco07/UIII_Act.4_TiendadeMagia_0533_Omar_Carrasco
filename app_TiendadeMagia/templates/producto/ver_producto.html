@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Ver Productos{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 pt-5">
+    <h2 class="text-primary"><i class="fas fa-box-open me-2"></i> Inventario de Productos</h2>
+    <a href="{% url 'agregar_producto' %}" class="btn btn-success shadow-sm">
+        <i class="fas fa-plus me-2"></i> Agregar Producto
+    </a>
+</div>
+
+<div class="card shadow-lg border-0" style="border-radius: 10px;">
+    <div class="card-body p-4">
+        {% if productos %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th> 
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">F. Registro</th> 
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                    <tr>
+                        <th scope="row">{{ producto.pk }}</th>
+                        <td>{{ producto.nombre }}</td>
+                        
+                        <td>{{ producto.descripcion|truncatechars:30|default:"S/D" }}</td> 
+                        
+                        <td><span class="badge bg-secondary">{{ producto.categoria|default:"N/A" }}</span></td>
+                        
+                        <td><strong class="text-success">${{ producto.precio|floatformat:2|default:"0.00" }}</strong></td>
+                        
+                        <td><span class="badge {% if producto.stock <= 5 %}bg-danger{% else %}bg-success{% endif %}">{{ producto.stock }}</span></td>
+                        
+                        <td>{{ producto.fecha_registro|date:"d M Y"|default:"N/A" }}</td>
+                        
+                        <td class="text-center">
+                            <a href="{% url 'actualizar_producto' producto.pk %}" class="btn btn-sm btn-warning text-dark me-1" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'borrar_producto' producto.pk %}" class="btn btn-sm btn-danger" title="Borrar">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {% else %}
+        <div class="alert alert-info mb-0">No hay productos de magia registrados.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

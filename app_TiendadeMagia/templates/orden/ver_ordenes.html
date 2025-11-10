@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Órdenes de Venta{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 pt-5">
+    <h2 class="text-primary"><i class="fas fa-scroll me-2"></i> Órdenes de Venta</h2>
+    <a href="{% url 'agregar_orden' %}" class="btn btn-success shadow-sm">
+        <i class="fas fa-plus me-2"></i> Agregar Orden
+    </a>
+</div>
+
+<div class="card shadow-lg border-0" style="border-radius: 10px;">
+    <div class="card-body p-4">
+        {% if ordenes %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Dirección Envío</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Método Pago</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Comentarios</th> <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orden in ordenes %}
+                    <tr>
+                        <th scope="row">{{ orden.pk }}</th>
+                        <td>{{ orden.fecha_orden|date:"d M Y" }}</td>
+                        <td>{{ orden.cliente }}</td>
+                        <td>{{ orden.direccion_envio|truncatechars:30 }}</td>
+                        <td>
+                            {% if orden.estado == 'Pendiente' %}
+                                <span class="badge bg-warning text-dark">{{ orden.estado }}</span>
+                            {% elif orden.estado == 'Enviado' %}
+                                <span class="badge bg-info text-dark">{{ orden.estado }}</span>
+                            {% elif orden.estado == 'Entregado' %}
+                                <span class="badge bg-success">{{ orden.estado }}</span>
+                            {% else %}
+                                <span class="badge bg-secondary">{{ orden.estado }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ orden.metodo_pago }}</td>
+                        <td><strong class="text-success">${{ orden.total|floatformat:2|default:"0.00" }}</strong></td>
+                        
+                        <td>{{ orden.comentarios|truncatechars:20|default:"S/C" }}</td> 
+
+                        <td class="text-center">
+                            <a href="{% url 'ver_detalles' %}" class="btn btn-sm btn-primary me-1" title="Ver Detalles">
+                                <i class="fas fa-list"></i>
+                            </a>
+                            <a href="{% url 'editar_orden' orden.pk %}" class="btn btn-sm btn-info text-white me-1" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'eliminar_orden' orden.pk %}" class="btn btn-sm btn-danger" title="Eliminar">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info mb-0">No hay órdenes de venta registradas.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
